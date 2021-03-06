@@ -1,21 +1,38 @@
 import React, { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
-import { salvaPost } from "./../../api";
+import { salvaPost, carregaPosts } from "./../../api";
 const NovoPost = () => {
   const [novoPost, setNovoPost] = useState({ autor: "", conteudo: "" });
+  const [atualiza, setAtualiza] = useState(false);
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    carregaPosts();
+    console.log("ATUALIZOU");
+    // setAtualiza(false);
+  }, []);
 
-  const salvaNovoPost = (event) => {
+  const cliqueSalvar = (event) => {
     event.preventDefault();
-    salvaPost(novoPost);
+
+    if (
+      novoPost.autor.trim().length > 2 ||
+      novoPost.conteudo.trim().length > 1
+    ) {
+      salvaPost(novoPost);
+      carregaPosts();
+    } else {
+      console.log(
+        "Autor precisa ter mais que 2 caracteres e conteudo maior que 1 caracter"
+      );
+    }
   };
   const nomeDigitando = (autor) => {
-    setNovoPost({ autor: autor, conteudo: novoPost.conteudo });
+    setNovoPost({ ...novoPost, autor: autor });
     console.log(novoPost);
   };
   const conteudoDigitando = (conteudo) => {
-    setNovoPost({ autor: novoPost.autor, conteudo: conteudo });
+    setNovoPost({ ...novoPost, conteudo: conteudo });
+    console.log(novoPost);
   };
   return (
     <Container>
@@ -24,7 +41,7 @@ const NovoPost = () => {
           <form
             className="formulario"
             onSubmit={(event) => {
-              salvaNovoPost(event);
+              cliqueSalvar(event);
             }}
           >
             <label>Nome:</label>

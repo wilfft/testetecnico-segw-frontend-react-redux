@@ -5,7 +5,7 @@ const PostCard = (props) => {
       <p>{props.post.autor}</p>
       <p>{props.post.conteudo}</p>
       <p>{props.post.horarioPostagem}</p>
-      <p>{props.post.upvotes}</p>
+      <button onClick={props.clique}>{props.post.upvotes}</button>
     </div>
   );
 };
