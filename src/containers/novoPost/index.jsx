@@ -3,13 +3,8 @@ import { Container } from "react-bootstrap";
 import { salvaPost, carregaPosts } from "./../../api";
 const NovoPost = () => {
   const [novoPost, setNovoPost] = useState({ autor: "", conteudo: "" });
-  const [atualiza, setAtualiza] = useState(false);
 
-  useEffect(() => {
-    carregaPosts();
-    console.log("ATUALIZOU");
-    // setAtualiza(false);
-  }, []);
+  useEffect(() => {}, []);
 
   const cliqueSalvar = (event) => {
     event.preventDefault();
@@ -19,7 +14,8 @@ const NovoPost = () => {
       novoPost.conteudo.trim().length > 1
     ) {
       salvaPost(novoPost);
-      carregaPosts();
+
+      //carregaPosts();
     } else {
       console.log(
         "Autor precisa ter mais que 2 caracteres e conteudo maior que 1 caracter"
@@ -28,11 +24,9 @@ const NovoPost = () => {
   };
   const nomeDigitando = (autor) => {
     setNovoPost({ ...novoPost, autor: autor });
-    console.log(novoPost);
   };
   const conteudoDigitando = (conteudo) => {
     setNovoPost({ ...novoPost, conteudo: conteudo });
-    console.log(novoPost);
   };
   return (
     <Container>

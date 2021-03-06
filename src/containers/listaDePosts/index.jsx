@@ -13,6 +13,7 @@ const ListaDePosts = () => {
       });
     // console.log(erro);
   };
+
   useEffect(() => {
     trazerPosts();
   }, []);
