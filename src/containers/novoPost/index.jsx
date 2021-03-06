@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Container } from "react-bootstrap";
-import { salvaPost, carregaPosts } from "./../../api";
-const NovoPost = () => {
-  const [novoPost, setNovoPost] = useState({ autor: "", conteudo: "" });
+import { salvaPost } from "./../../api";
+import { connect } from "react-redux";
+import { mapStateToProps, mapDispatchToProps } from "../../store/connect";
 
-  useEffect(() => {}, []);
+const NovoPost = (props) => {
+  const [novoPost, setNovoPost] = useState({ autor: "", conteudo: "" });
 
   const cliqueSalvar = (event) => {
     event.preventDefault();
@@ -13,7 +14,9 @@ const NovoPost = () => {
       novoPost.autor.trim().length > 2 ||
       novoPost.conteudo.trim().length > 1
     ) {
-      salvaPost(novoPost);
+      if (props.reload) {
+      }
+      salvaPost(novoPost).then(props.solicitarReload());
 
       //carregaPosts();
     } else {
@@ -63,4 +66,4 @@ const NovoPost = () => {
   );
 };
 
-export default NovoPost;
+export default connect(null, mapDispatchToProps)(NovoPost);

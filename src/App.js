@@ -3,10 +3,10 @@ import NovoPost from "./containers/novoPost";
 
 function App() {
   return (
-    <div className="App">
+    <>
       <NovoPost />
       <ListaDePosts />
-    </div>
+    </>
   );
 }
 

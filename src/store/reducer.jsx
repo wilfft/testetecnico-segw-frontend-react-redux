@@ -1,14 +1,17 @@
 const initialState = {
   autorizaReload: false,
+  //posts: [],
 };
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case "CARREGA_POST": {
-      return state;
+      console.log("CARREGA_POST");
+      return { autorizaReload: true };
     }
     case "FOI_CARREGADO": {
-      return state;
+      console.log("FOI CARREGADO");
+      return { autorizaReload: false };
     }
 
     default:

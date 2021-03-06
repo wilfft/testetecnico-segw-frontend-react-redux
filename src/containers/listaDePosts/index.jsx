@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { carregaPosts, upvotePost } from "../../api";
 import PostCard from "../../components/postCard";
+import { connect } from "react-redux";
+import { mapStateToProps, mapDispatchToProps } from "../../store/connect";
 
-const ListaDePosts = () => {
+const ListaDePosts = (props) => {
   const [posts, setPosts] = useState([]);
 
   const trazerPosts = () => {
@@ -11,12 +13,14 @@ const ListaDePosts = () => {
       .catch((e) => {
         console.log("erro ao iniciar posts ");
       });
-    // console.log(erro);
   };
 
   useEffect(() => {
-    trazerPosts();
-  }, []);
+    if (props.reload) {
+      trazerPosts();
+      props.postsCarregados();
+    }
+  }, [props.reload]);
 
   const votar = (id) => {
     upvotePost(id).then(() => trazerPosts());
@@ -35,4 +39,4 @@ const ListaDePosts = () => {
   );
 };
 
-export default ListaDePosts;
+export default connect(mapStateToProps, mapDispatchToProps)(ListaDePosts);
