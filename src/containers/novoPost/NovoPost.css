@@ -1,0 +1,52 @@
+.novoPost {
+  font-family: "Roboto";
+  width: 500px;
+  height: 420px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+
+  background-color: rgb(245, 248, 250);
+  border-radius: 10px;
+}
+
+.formulario {
+  position: absolute;
+  display: block;
+  width: 100%;
+}
+.mensagem,
+.nome_formulario {
+  width: 100%;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: solid rgb(134, 132, 132) 1px;
+}
+.area {
+  position: absolute;
+  left: 5%;
+  right: 20px;
+  top: 5%;
+}
+.btn_submit {
+  position: absolute;
+  right: 10px;
+
+  padding: 5px 15px;
+  text-decoration: none;
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  color: white;
+  background: #6225e6;
+  transition: 1s;
+  box-shadow: 6px 6px 0 black;
+  transform: skewX(-15deg);
+}
+.btn_submit :focus {
+  outline: none;
+}
+
+.btn_submit :hover {
+  transition: 0.5s;
+  box-shadow: 10px 10px 0 #fbc638;
+}

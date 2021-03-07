@@ -3,7 +3,7 @@ import { Container } from "react-bootstrap";
 import { salvaPost } from "./../../api";
 import { connect } from "react-redux";
 import { mapStateToProps, mapDispatchToProps } from "../../store/connect";
-
+import "./NovoPost.css";
 const NovoPost = (props) => {
   const [novoPost, setNovoPost] = useState({ autor: "", conteudo: "" });
 

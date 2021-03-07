@@ -1,0 +1,14 @@
+.posts {
+  width: 500px;
+  height: 400px;
+  background-color: rgb(234, 247, 255);
+  border-radius: 10px;
+}
+.postsContainer {
+  font-family: "Roboto";
+  padding: 10px;
+  background-color: rgb(245, 248, 250);
+  border-radius: 10px;
+  height: 90vh;
+  overflow-y: scroll;
+}

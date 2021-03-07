@@ -3,7 +3,7 @@ import { carregaPosts, upvotePost } from "../../api";
 import PostCard from "../../components/postCard";
 import { connect } from "react-redux";
 import { mapStateToProps, mapDispatchToProps } from "../../store/connect";
-
+import "./ListaDePosts.css";
 const ListaDePosts = (props) => {
   const [posts, setPosts] = useState([]);
 
