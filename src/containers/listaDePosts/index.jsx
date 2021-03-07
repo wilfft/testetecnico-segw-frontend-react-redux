@@ -25,7 +25,6 @@ const ListaDePosts = (props) => {
   const votar = (id) => {
     upvotePost(id).then(() => trazerPosts());
   };
-
   return (
     <Container className="postsContainer">
       {posts.map((postData) => {

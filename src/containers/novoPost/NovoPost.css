@@ -1,15 +1,25 @@
 .novoPost {
   font-family: "Roboto";
-  width: 450px;
+
   height: 420px;
   position: relative;
   display: flex;
   justify-content: center;
-
+  width: 100%;
   background-color: rgb(245, 248, 250);
   border-radius: 10px;
 }
 
+.mensagem-erro {
+  position: absolute;
+  bottom: 0;
+  opacity: initial;
+  left: 4px;
+  font-size: 12px;
+  margin-right: 60px;
+  color: red;
+  animation: fadeout 4s;
+}
 .formulario {
   position: absolute;
   display: block;
@@ -49,4 +59,16 @@
 .btn_submit :hover {
   transition: 0.5s;
   box-shadow: 10px 10px 0 #fbc638;
+}
+
+@keyframes fadeout {
+  from {
+    opacity: 1;
+  }
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0.8;
+  }
 }

@@ -3,6 +3,7 @@
   padding: 10px;
   background-color: rgb(232, 243, 253);
   border-radius: 5px;
+  overflow-y: auto;
   word-wrap: break-word;
 }
 

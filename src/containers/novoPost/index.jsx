@@ -7,22 +7,24 @@ import "./NovoPost.css";
 
 const NovoPost = (props) => {
   const [novoPost, setNovoPost] = useState({ autor: "", conteudo: "" });
+  const [mensagemErro, setMensagemErro] = useState(false);
 
   const cliqueSalvar = (event) => {
     event.preventDefault();
 
     if (
-      novoPost.autor.trim().length > 2 ||
-      novoPost.conteudo.trim().length > 1
+      novoPost.autor.trim().length > 2 &&
+      novoPost.conteudo.trim().length > 2 &&
+      novoPost.autor.trim().length < 50 &&
+      novoPost.conteudo.trim().length <= 1000
     ) {
       salvaPost(novoPost).then(props.solicitarReload());
-
       setNovoPost({ autor: "", conteudo: "" });
+
       //carregaPosts();
     } else {
-      console.log(
-        "Autor precisa ter mais que 2 caracteres e conteudo maior que 1 caracter"
-      );
+      setTimeout(() => setMensagemErro(true), 0);
+      setMensagemErro(false);
     }
   };
   const nomeDigitando = (autor) => {
@@ -58,7 +60,15 @@ const NovoPost = (props) => {
               onChange={(conteudo) => conteudoDigitando(conteudo.target.value)}
             ></textarea>
             <br />
+
             <input className="btn_submit" type="submit" value="Enviar !" />
+
+            {mensagemErro ? (
+              <p style={{ opacity: 0 }} className="mensagem-erro">
+                "Seu nome precisa ter de 2 a 50 caracteres e o texto, de 2 a
+                1000 caracteres, confira"
+              </p>
+            ) : null}
           </form>
         </div>
       </div>
