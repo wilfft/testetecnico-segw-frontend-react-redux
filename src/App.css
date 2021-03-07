@@ -1,1 +1,7 @@
- 
+.container {
+  position: relative;
+  margin-top: 20px;
+}
+.row {
+  display: flex;
+}

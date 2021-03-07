@@ -1,7 +1,6 @@
 import React from "react";
 import { Container } from "react-bootstrap";
 import "./PostCard.css";
-
 import UpVoteBotao from "../upVoteBotao/UpVoteBotao";
 
 const PostCard = (props) => (
