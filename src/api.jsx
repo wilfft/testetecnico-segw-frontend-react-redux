@@ -1,7 +1,7 @@
 import axios from "axios";
 const API_URL = "http://localhost:8080";
 
-export const carregaPosts = async () => {
+export const fetchPosts = async () => {
   return await axios.get(`${API_URL}/api/postagens`);
 };
 export const salvaPost = async (dadosPost) => {

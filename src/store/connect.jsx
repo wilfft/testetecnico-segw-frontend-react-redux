@@ -6,7 +6,7 @@ export const mapStateToProps = (state) => {
 
 export const mapDispatchToProps = (dispatch) => {
   return {
-    postsCarregados: () => dispatch({ type: "FOI_CARREGADO" }),
-    solicitarReload: () => dispatch({ type: "CARREGA_POST" }),
+    reloadFalse: () => dispatch({ type: "FOI_CARREGADO" }),
+    reloadTrue: () => dispatch({ type: "CARREGA_POST" }),
   };
 };

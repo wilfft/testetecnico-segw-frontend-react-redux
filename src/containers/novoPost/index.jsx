@@ -18,14 +18,19 @@ const NovoPost = (props) => {
       novoPost.autor.trim().length < 50 &&
       novoPost.conteudo.trim().length <= 1000
     ) {
-      salvaPost(novoPost).then(props.solicitarReload());
-      setNovoPost({ autor: "", conteudo: "" });
-
-      //carregaPosts();
+      salvaPost(novoPost)
+        .then((res) => setNovoPost({ autor: "", conteudo: "" }))
+        .then(() => props.reloadTrue())
+        .catch((err) => console.error(err));
     } else {
       setTimeout(() => setMensagemErro(true), 0);
       setMensagemErro(false);
     }
+    props.reloadTrue();
+    console.log("solicita reaload");
+    //  setNovoPost({ autor: "", conteudo: "" });
+
+    //carregaPosts();
   };
   const nomeDigitando = (autor) => {
     setNovoPost({ ...novoPost, autor: autor });
