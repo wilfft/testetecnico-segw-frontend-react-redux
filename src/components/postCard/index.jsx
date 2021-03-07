@@ -1,7 +1,7 @@
 import React from "react";
 import { Container } from "react-bootstrap";
 import "./PostCard.css";
-import UpVoteBotao from "../upVoteBotao/UpVoteBotao";
+import UpVoteBotao from "../upVoteBotao";
 
 const PostCard = (props) => (
   <div className="postContainer">
