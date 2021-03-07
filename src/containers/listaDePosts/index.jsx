@@ -9,24 +9,20 @@ import "./ListaDePosts.css";
 const ListaDePosts = (props) => {
   const [posts, setPosts] = useState([]);
 
-  const preencheListaPosts = async () => {
-    await fetchPosts().then((response) => setPosts(response.data));
-  };
-  const trazerPosts = async () => {
-    await preencheListaPosts();
+  const trazerPosts = () => {
+    fetchPosts().then((response) => setPosts(response.data));
     props.reloadFalse();
-    console.log("trazendo posts");
   };
 
   useEffect(() => {
-    console.log("USEEFFECT: ", props.reload);
     if (props.reload) {
       trazerPosts();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props.reload]);
+
   useEffect(() => {
-    console.log("DEVE OCORRER SO 1 vez: ", props.reload);
-    preencheListaPosts();
+    trazerPosts();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
