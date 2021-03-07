@@ -16,10 +16,8 @@ const ListaDePosts = (props) => {
   };
 
   useEffect(() => {
-    if (props.reload) {
-      trazerPosts();
-      props.postsCarregados();
-    }
+    trazerPosts();
+    props.postsCarregados();
   }, [props.reload]);
 
   const votar = (id) => {
@@ -32,7 +30,7 @@ const ListaDePosts = (props) => {
         <PostCard
           key={postData.id}
           post={postData}
-          clique={() => votar(postData.id)}
+          cliqueUpvote={() => votar(postData.id)}
         ></PostCard>
       ))}
     </div>

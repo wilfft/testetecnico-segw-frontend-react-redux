@@ -1,0 +1,14 @@
+.upVoteButton {
+  transition: all 1s;
+  cursor: pointer;
+  color: palevioletred;
+  margin-right: 6px;
+  margin-top: -10px;
+}
+
+.upVoteButton:hover {
+  color: deeppink;
+  -webkit-transform: scale(1.5);
+  -ms-transform: scale(1.5);
+  transform: scale(1.5);
+}

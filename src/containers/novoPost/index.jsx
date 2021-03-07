@@ -14,10 +14,9 @@ const NovoPost = (props) => {
       novoPost.autor.trim().length > 2 ||
       novoPost.conteudo.trim().length > 1
     ) {
-      if (props.reload) {
-      }
       salvaPost(novoPost).then(props.solicitarReload());
 
+      setNovoPost({ autor: "", conteudo: "" });
       //carregaPosts();
     } else {
       console.log(
